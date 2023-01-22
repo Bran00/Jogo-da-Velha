@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Jogo da Velha</title>
+    <link rel="stylesheet" href="style.css"/><link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  </head>
+<body>
+  
+    <p class="player1">Player 1 = <span>0</span>
+    <p class="player2">Player 2 = <span>0</span></p>
+    
+    <div class="board" data-board>
+      
+      <div class="cell" data-cell></div>
+      <div class="cell" data-cell></div>
+      <div class="cell" data-cell></div>
+      <div class="cell" data-cell></div>
+      <div class="cell" data-cell></div>
+      <div class="cell" data-cell></div>
+      <div class="cell" data-cell></div>
+      <div class="cell" data-cell></div>
+      <div class="cell" data-cell></div>
+      
+    </div>
+    <div class="entrance-players">
+      <p>Jogadores</p>
+      <input class="firstPlayer" type="text" placeholder="Primeiro Jogador"/>
+      <input class="secondPlayer" type="text" placeholder="Segundo Jogador"/>
+      <button class="startGame" onclick="startGame()">Começar Jogo</button>
+    </div>
+    
+    <div class="winning-message" data-winning-message>
+     <p data-message >X venceu</p> 
+     <button class="winning-message-button">Reiniciar</button>
+    </div>
+    
+    <script src="main.js"></script>
+  </body>
+</html>

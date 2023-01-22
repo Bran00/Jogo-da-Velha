@@ -1,0 +1,195 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+body {
+  height: 100vh;
+  width: 100vw;
+  background: hsl(207, 58%, 27%);
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+}
+
+p {
+  color: white;
+  padding: 10px;
+}
+
+.board {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+  grid-template-columns: repeat(3, auto);
+}
+
+.board.xis .cell:not(.xis):not(.circle):hover::after,
+.board.xis .cell:not(.xis):not(.circle):hover::before,
+.board.circle .cell:not(.xis):not(.circle):hover::after,
+.board.circle .cell:not(.xis):not(.circle):hover::before {
+  background-color: hsla(360, 100%, 100%, 0.49) !important;
+}
+
+
+.cell {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  padding: 15px;
+  
+  border: 2px solid white;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cell.xis, .cell.circle {
+  cursor: not-allowed;
+}
+
+.cell:nth-child(1),
+.cell:nth-child(2),
+.cell:nth-child(3) {
+  border-top: none;
+}
+
+.cell:nth-child(3),
+.cell:nth-child(6),
+.cell:nth-child(9) {
+  border-right: none;
+}
+
+.cell:nth-child(7),
+.cell:nth-child(8),
+.cell:nth-child(9) {
+  border-bottom: none;
+}
+
+.cell:nth-child(1),
+.cell:nth-child(4),
+.cell:nth-child(7) {
+  border-left: none;
+}
+
+
+.cell.xis::before,
+.cell.xis::after,
+.board.xis .cell:not(.xis):not(.circle):hover::after,
+.board.xis .cell:not(.xis):not(.circle):hover::before {
+  position: absolute;
+  content: "";
+  height: calc(100px * 0.15);
+  width: calc(100px * 0.9);
+  background-color: white;
+}
+
+.cell.xis::before,
+.board.xis .cell:not(.xis):not(.circle):hover::before {
+  transform: rotate(45deg);
+}
+
+.cell.xis::after,
+.board.xis .cell:not(.xis):not(.circle):hover::after {
+  transform: rotate(-45deg);
+}
+
+.cell.circle::before,
+.cell.circle::after,
+.board.circle .cell:not(.xis):not(.circle):hover::after,
+.board.circle .cell:not(.xis):not(.circle):hover::before {
+  position: absolute;
+  content: "";
+  height: calc(100px * 0.9);
+  width: calc(100px * 0.9);
+  background-color: white;
+  border-radius: 50%;
+}
+
+
+
+.winning-message {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  
+  background-color: hsla(0, 0%, 0%, 0.7);
+}
+
+.winning-message > p {
+  color: white;
+  font-size: 3rem;
+  display: flex;
+}
+
+.winning-message-button {
+  font-size: 2.5rem;
+  background-color: hsl(207, 58%, 27%);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  
+  margin-top: 15px;
+  padding: 10px 15px;
+  
+  cursor: pointer;
+}
+
+.winning-message-button:hover {
+  color: hsl(207, 58%, 27%);
+  background-color: white;
+}
+
+.entrance-players {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 10px;
+  
+  background-color: hsla(0, 0%, 0%, 0.7);
+}
+
+.entrance-players > p {
+  color: white;
+  font-size: 3rem;
+  display: flex;
+}
+
+.entrance-players > input {
+  font-size: 20px;
+  margin-top: 10px;
+  padding: 10px 25px;
+  border-radius: 30px;
+  border: none;
+}
+
+.entrance-players > button {
+  font-size: 2.5rem;
+  background-color: hsl(207, 58%, 27%);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  
+  margin-top: 55px;
+  padding: 10px 25px;
+  
+  cursor: pointer;
+}
